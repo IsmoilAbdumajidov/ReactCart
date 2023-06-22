@@ -10,7 +10,7 @@ const Navbar = () => {
       </NavLink>
       <ul className='flex items-center  ml-20 gap-6 text-[15px]'>
         <li className='py-4'><a href="#" className='hover:text-red-500 transition duration-300'>Home</a></li>
-        <li className='py-4'><a href="#" className='hover:text-red-500 transition duration-300'>Shop</a></li>
+        <li className='py-4'><a href="#" className='hover:text-red-500 transition duration-300'>Shopping</a></li>
         <li className='py-4'><a href="#" className='hover:text-red-500 transition duration-300'>Pages</a></li>
         <li className='py-4'><a href="#" className='hover:text-red-500 transition duration-300'>Contact</a></li>
       </ul>
