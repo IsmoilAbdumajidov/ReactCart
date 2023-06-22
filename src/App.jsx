@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useReducer } from 'react'
 import Navbar from './components/Navbar'
-import Searchbar from './components/Searchbar'
+import SearchBar from './components/SearchBar'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
 import ProductList from './pages/ProductList'
@@ -34,7 +34,7 @@ const App = () => {
     <ProductsContext.Provider  value={[state,dispatch]}>
       <div className='flex flex-col h-full'>
         <Navbar />
-        <Searchbar />
+        <SearchBar />
         <Routes>
           <Route path='/' element={<ProductList />} />
           <Route path='/cart' element={<Cart />} />

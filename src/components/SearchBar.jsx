@@ -5,13 +5,13 @@ import { searchByQuery } from '../fetches/productsFetching'
 import { useContext } from 'react'
 import { ProductsContext } from '../App'
 
-const Searchbar = () => {
-  const [state,dispatch] = useContext(ProductsContext)
+const SearchBar = () => {
+  const [state, dispatch] = useContext(ProductsContext)
 
   const inputRef = useRef()
   const searchHandler = () => {
     const inputValue = inputRef.current.value;
-    searchByQuery(inputValue,dispatch)
+    searchByQuery(inputValue, dispatch)
   }
   return (
     <div className='bg-red-500 p-3 sticky z-10 top-[-1px]'>
@@ -57,4 +57,4 @@ const Searchbar = () => {
   )
 }
 
-export default Searchbar
+export default SearchBar
