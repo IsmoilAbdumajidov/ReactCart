@@ -6,7 +6,7 @@ const ListingItems = ({ grid, list }) => {
     const [_, dispatch] = useContext(ProductsContext)
     const toggleHandler = (store, dispatchType, card) => {
         let dataFromLS = JSON.parse(localStorage.getItem(store)) || []
-        const el = dataFromLS.find(item => item.id === card.id)
+        const el = dataFromLS?.find(item => item.id === card.id)
         if (el) {
             const filteredArr = dataFromLS.filter(item => item.id !== card.id)
             localStorage.setItem(store, JSON.stringify(filteredArr));

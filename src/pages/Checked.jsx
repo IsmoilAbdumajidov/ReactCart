@@ -2,9 +2,9 @@ import React from 'react'
 
 const Checked = ({ cardId }) => {
     const cartList = JSON.parse(localStorage.getItem('cart'))
-    const isInCart = cartList.find(item => item.id === cardId)
+    const isInCart = cartList?.find(item => item.id === cardId)
     const wishList = JSON.parse(localStorage.getItem('wishlist'))
-    const isInwishList = wishList.find(item => item.id === cardId)
+    const isInwishList = wishList?.find(item => item.id === cardId)
 
     return (
         <div className='flex gap-2 absolute right-4 bottom-4'>
