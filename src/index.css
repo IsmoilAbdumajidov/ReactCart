@@ -9,19 +9,22 @@
   label {
     @apply flex flex-col
   }
-
+  
   input,
-  select {
+  select,
+  textarea{
     @apply bg-transparent border outline-none p-2 rounded
   }
 }
 
 .main-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin-inline: auto;
-  padding: auto 10px;
+
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }

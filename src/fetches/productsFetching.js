@@ -1,42 +1,26 @@
 // get all products
-const productsUrl = 'https://dummyjson.com/products';
+// export const productsUrl = 'https://6a97-195-158-30-69.ngrok-free.app';
+export const productsUrl = 'https://tarasivka.pythonanywhere.com';
 export const fechtAllProducts = async (dispatch) => {
-    dispatch({ type: "LOADING" })
+    // dispatch({ type: "LOADING" })
     try {
-        const resp = await fetch(productsUrl);
+        const resp = await fetch(productsUrl + '/api/products/');
         const data = await resp.json()
-        let categories = data.products.map(product => product.category)
-        categories = ['all', ...new Set(categories)]
-        dispatch({ type: 'FETCH_PRODUCTS_LIST', payload: { products: data.products, categories } })
+        // console.log(data);
+        dispatch({ type: 'FETCH_PRODUCTS_LIST', payload: { products: data} })
     } catch (error) {
         console.log(error);
     }  
 }
 
-// get products by category
-const categoryUrl = 'https://dummyjson.com/products/category/'
-export const fechProductsByCategory = async (cat,dispatch) => {
-    dispatch({ type: "LOADING" })
+export const fechtAllCategory = async (dispatch) => {
+    // dispatch({ type: "LOADING" })
     try {
-        const resp = await fetch(categoryUrl + cat)
+        const resp = await fetch(productsUrl + '/api/category/');
         const data = await resp.json()
-        dispatch({ type: 'SELECT_CATEGORY', payload: data.products })
+        // console.log(data);
+        dispatch({ type: 'FETCH_CATEGORY_LIST', payload: { categories: data} })
     } catch (error) {
         console.log(error);
-    }
-}
-
-
-// searching products
-const searchUrl = 'https://dummyjson.com/products/search?'
-export const searchByQuery = async (value,dispatch) => {
-    dispatch({ type: "LOADING" })
-    try {
-        const config = new URLSearchParams({q:value || ''})
-        const resp = await fetch(searchUrl+config)
-        const data = await resp.json()
-        dispatch({ type: 'SEARCH', payload: data.products })
-    } catch (error) {
-        console.log(error);
-    }
+    }  
 }
