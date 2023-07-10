@@ -16,7 +16,7 @@ const ChooseCart = ({ cart }) => {
         allPrice()
     }, [])
 
-    const toggleHandler = (store, dispatchType, card) => {
+     const toggleHandler = (store, dispatchType, card) => {
         // console.log(store,dispatchType,card);
 
         let dataFromLS = JSON.parse(localStorage.getItem(store)) || []
@@ -51,7 +51,7 @@ const ChooseCart = ({ cart }) => {
             {state.cart.length ? state.cart.map((card, index) => (
                 <div key={index} className='border-b relative sm:flex items-start gap-3 py-2 '>
                     <div className='w-28 h-auto '>
-                        <img src={card?.images[0]?.image} className='border w-full h-full aspect-square object-cover object-center' alt="" />
+                        <img src={card?.images[0]} className='w-full h-full aspect-square object-cover object-center' alt="" />
                         <div className='absolute top-3 rounded right-0 text-sm bg-green-600 text-white px-1'>{card.type}</div>
                     </div>
                     <div className='flex-1'>

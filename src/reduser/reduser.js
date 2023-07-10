@@ -9,6 +9,8 @@ export const reducer = (state, action) => {
 
     if(action.type==='UPDATE_SCALE') return {...state,scale:action.payload}
 
+    if(action.type==='FETCH_DETAIL_PAGE') return {...state,detail:action.payload}
+
     if(action.type==='ALL_PPRICE') return {...state,allPrice:action.payload}
 
     return state 
