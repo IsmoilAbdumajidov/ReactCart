@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import Navbar from './components/Navbar'
 import SearchBar from './components/SearchBar'
 import { Route, Routes } from 'react-router-dom'
@@ -16,6 +16,7 @@ const initialValue = {
   categories:[],
   cart:[],
   wishlist:[],
+  allPrice:0,
   scale:[],
   loading:true,
 }
@@ -23,6 +24,15 @@ const initialValue = {
 const App = () => {
 
   const [state,dispatch] = useReducer(reducer, initialValue)
+
+  useEffect(()=>{
+    const dataFromLS_Cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const dataFromLS_Wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const dataFromLS_Scale = JSON.parse(localStorage.getItem('scale')) || [];
+    dispatch({type:'UPDATE_CART',payload:dataFromLS_Cart})
+    dispatch({type:'UPDATE_WISHLIST',payload:dataFromLS_Wishlist})
+    dispatch({type:'UPDATE_SCALE',payload:dataFromLS_Scale})
+  }, [])
   return (
     <ProductsContext.Provider  value={[state,dispatch]}>
     <div className='flex flex-col h-full'>

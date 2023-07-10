@@ -4,20 +4,20 @@ import ChooseCart from '../components/ChooseCart'
 
 const Cart = () => {
   const [state] = useContext(ProductsContext)
+  // console.log(state.cart);
   return (
     <div className='min-h-screen'>
-      <div className='main-container gap-8 grid grid-cols-2 mt-10'>
+      <div className='main-container gap-8 items-start grid grid-cols-1 xl:grid-cols-2 mt-10'>
         <div className='col-span-1 flex flex-col gap-8'>
-          <ChooseCart />
-          
+          <ChooseCart/>
         </div>
         <div className='border flex flex-col gap-5 col-span-1  rounded-md p-3 lg:p-6'>
           <div className='flex items-center justify-between text-xl font-bold border-b py-2'>
             <div>Разом:</div>
-            <div className='text-2xl text-red-500'>121212<sup>грн</sup></div>
+            <div className='text-2xl text-red-500'>{state.allPrice}<sup>грн</sup></div>
           </div>
           <div>
-            <h1 className='flex gap-3'><span>Сума замовлення:</span> <span>121212<sup>грн</sup></span></h1>
+            <h1 className='flex gap-3'><span>Сума замовлення:</span> <span>{state.allPrice}<sup>грн</sup></span></h1>
             <h1 className='flex gap-3'><span>Доставка:</span> <span>безкоштовно</span></h1>
           </div>
           <div className=''>

@@ -19,7 +19,7 @@ const ListingItems = ({ list }) => {
             localStorage.setItem(store, JSON.stringify([...dataFromLS, card]))
             dispatch({ type: dispatchType, payload: [...dataFromLS, card] })
         }
-        console.log(card);
+        // console.log(card);
     }
     return (
         <>
@@ -33,14 +33,14 @@ const ListingItems = ({ list }) => {
                                 </svg>
                             </div>
                             <div className='absolute bottom-0 rounded left-0 text-sm bg-green-600 text-white px-1'>{card.type}</div>
-                            <img className='w-full aspect-square object-cover' src={card.images[0]?.image} alt="" />
-                            <Checked cardId={card.id} />
+                            <img className='w-full aspect-square object-cover' src={card?.images[0]?.image} alt="" />
+                            <Checked cardId={card?.id} />
                         </div>
                         <div className="p-4 relative flex flex-col  gap-2 flex-1 border">
                             <h1 className='text-slate-900 text-lg font-bold'>{card?.name}</h1>
                             <p className='text-gray-400 text-sm'><span>Артикул:</span> {card?.vendor_code}</p>
                             <div>
-                                <span className={`text-gray-400 text-sm block ${card.discount !== 0 ? 'inline' : 'hidden'}`}>Discount:<span className='text-red-500 line-through  font-semibold ml-3 '>{card.discount}<sup>грн</sup></span></span>
+                                <span className={`text-gray-400 text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Discount:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></span>
                                 <span className='text-gray-400 text-sm block'>Ціна:<span className='text-green-500 text-lg font-semibold ml-3'>{card?.price}<sup>грн</sup></span></span>
                             </div>
 
