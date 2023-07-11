@@ -9,12 +9,27 @@
   label {
     @apply flex flex-col
   }
-  
+
   input,
   select,
-  textarea{
+  textarea {
     @apply bg-transparent border outline-none p-2 rounded
   }
+}
+
+.detail_img::-webkit-scrollbar {
+  width: 0;
+}
+
+.detail_img::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.detail_img::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+
 }
 
 .main-container {

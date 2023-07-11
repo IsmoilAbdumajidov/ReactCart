@@ -20,7 +20,7 @@ const initialValue = {
   allPrice: 0,
   scale: [],
   loading: true,
-  detail:[]
+  detail: []
 }
 
 const App = () => {
@@ -42,9 +42,11 @@ const App = () => {
         <SearchBar />
         <Routes>
           <Route path='/' element={<ProductList />} />
+          <Route path='/:categorySlug' element={<ProductList />} >
+            <Route path=':detailSlug' element={<Detail />} />
+          </Route>
           <Route path='/cart' element={<Cart />} />
           <Route path='/wishlist' element={<WishList />} />
-          <Route path='/category/:categorySlug' element={<Detail />} />
           {/* <Route path='/wishlist' element={<WishList />} /> */}
         </Routes>
         <Footer />

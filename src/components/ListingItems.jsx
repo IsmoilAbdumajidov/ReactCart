@@ -28,13 +28,13 @@ const ListingItems = ({ list }) => {
                 {list.length ? list.map((card, index) => (
                     <div className='overflow-hidden flex flex-col shadow rounded-md hover:shadow-lg transition-all relative' key={index}>
                         {/* {console.log(card)} */}
-                        <NavLink to={`/category/${card.slug}`} className='relative cursor-pointer group'>
+                        <NavLink to={`${card.slug}`} className='relative cursor-pointer group'>
                             <div className='absolute bottom-0 rounded left-0 text-sm bg-green-600 text-white px-1'>{card.type}</div>
                             <img className='w-full aspect-square object-cover' src={card?.images[0]} alt="" />
                             <Checked cardId={card?.id} />
                         </NavLink>
                         <div className="p-4 relative flex flex-col  gap-2 flex-1 border">
-                            <NavLink to={`/category/${card.slug}`} className='text-slate-900 text-lg font-bold cursor-pointer'>{card?.name}</NavLink>
+                            <NavLink to={`${card.slug}`} className='text-slate-900 text-lg font-bold cursor-pointer'>{card?.name}</NavLink>
                             <p className='text-gray-400 text-sm'><span>Артикул:</span> {card?.vendor_code}</p>
                             <div>
                                 <span className={`text-gray-400 text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Discount:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></span>

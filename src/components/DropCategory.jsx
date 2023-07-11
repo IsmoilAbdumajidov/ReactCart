@@ -1,6 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const DropCategory = ({ categories }) => {
+    const navigate = useNavigate()
+    const selectHandler = (e) => {
+        // console.log(e.target.value);
+        navigate(`/${e.target.value}`)
+    }
     return (
         <div className='flex items-center  justify-center text-white'>
             <span>
@@ -8,10 +14,10 @@ const DropCategory = ({ categories }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </span>
-            <select className='rounded-md py-2 text-sm px-3  w-full border-none text-white outline-none'>
+            <select onChange={selectHandler} className='rounded-md py-2 text-sm px-3  w-full border-none text-white outline-none'>
                 {
                     categories.map((element, index) => (
-                        <option className='w-full text-black' key={index} value={element}>{element.name}</option>
+                        <option className='w-full text-black' key={index} value={element.slug}>{element.name}</option>
                     ))
                 }
             </select>
