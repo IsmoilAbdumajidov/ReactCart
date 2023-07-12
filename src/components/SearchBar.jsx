@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { fechtAllCategory } from '../fetches/productsFetching';
+import { fechtAllCategory, searchByQuery } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
 import DropCategory from './DropCategory';
 
@@ -11,6 +11,13 @@ const SearchBar = () => {
     fechtAllCategory(dispatch)
   }, []);
   // console.log(state);
+
+  const inputRef = useRef()
+  const searchHandler = () => {
+    const inputValue = inputRef.current.value;
+    console.log(inputValue);
+    searchByQuery(inputValue, dispatch)
+  }
   return (
     <div className='bg-red-600 py-3 sticky z-10 top-[-1px]'>
       <div className="main-container flex gap-5 flex-wrap items-center justify-between">
@@ -18,8 +25,8 @@ const SearchBar = () => {
           <DropCategory categories={state.categories} />
         </div>
         <div className='flex text-black lg:w-[500px] xl:w-[650px] w-full order-2 lg:order-1'>
-          <input type="text" className='rounded-s-md py-3 rounded-e-none text-[14px] bg-white w-full placeholder:text-black' placeholder='Search product...' />
-          <button className='bg-slate-800 rounded-e-md rounded-s-none text-[14px] text-white py-3 px-10'>Search</button>
+          <input ref={inputRef} type="text" className='rounded-s-md py-3 rounded-e-none text-[14px] bg-white w-full placeholder:text-black' placeholder='Що Ви шукаєте?' />
+          <button onClick={searchHandler} className='bg-slate-800 rounded-e-md rounded-s-none text-[14px] text-white py-3 px-10'>Пошук</button>
         </div>
         <div className='flex gap-6 justify-evenly  items-center text-white order-1 lg:order-2 w-full sm:w-auto'>
           <Link to={'/wishlist'} className={'flex cursor-pointer flex-col items-center relative text-[12px]'}>

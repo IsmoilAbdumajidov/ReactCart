@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ProductsContext } from '../App';
 import Checked from './Checked';
 import { Link } from 'react-router-dom';
+// import Charactiristic from './Charactiristic';
 
 const ListingItems = ({ list, remove }) => {
     const [_, dispatch] = useContext(ProductsContext)
@@ -21,6 +22,7 @@ const ListingItems = ({ list, remove }) => {
         }
         // console.log(card);
     }
+    // console.log(list);
     return (
         <>
             <div className={`main-container mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-8 pb-20`}>
@@ -36,7 +38,7 @@ const ListingItems = ({ list, remove }) => {
                             <Link to={`/product/${card.slug}`} className='text-slate-900 text-lg font-bold cursor-pointer'>{card?.name}</Link>
                             <p className='text-gray-400 text-sm'><span>Артикул:</span> {card?.vendor_code}</p>
                             <div>
-                                <span className={`text-gray-400 text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Discount:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></span>
+                                <span className={`text-gray-400 text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Знижка:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></span>
                                 <span className='text-gray-400 text-sm block'>Ціна:<span className='text-green-500 text-lg font-semibold ml-3'>{card?.price}<sup>грн</sup></span></span>
                             </div>
 
@@ -72,6 +74,7 @@ const ListingItems = ({ list, remove }) => {
                                 </button>
                             </div>
                         </div>
+                       {/* {remove==='scale' ? <Charactiristic card={card} /> : ''} */}
                     </div>
                 )) : <p className='min-h-screen'>No item left..</p>}
             </div>

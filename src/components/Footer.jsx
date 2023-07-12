@@ -36,7 +36,7 @@ const Footer = () => {
           </h1>
           <ul className='flex flex-col   gap-6  text-[14px]'>
             <li>
-               <SocialLink socialData={state.socialLink} />
+               <SocialLink />
             </li>
             <li>
               <a className='flex gap-2' href="#">

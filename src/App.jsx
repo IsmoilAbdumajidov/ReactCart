@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import Detail from './pages/Detail'
 import Contact from './pages/Contact'
 import Scale from './pages/Scale'
+import About from './pages/About'
+import Discount from './pages/Discount'
 
 
 export const ProductsContext = createContext()
@@ -23,6 +25,7 @@ const initialValue = {
   allPrice: 0,
   loading: true,
   detail: [],
+  discount: [],
 }
 
 const App = () => {
@@ -47,8 +50,10 @@ const App = () => {
           <Route path='/product/:detailSlug' element={<Detail />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/wishlist' element={<WishList />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='/контакти' element={<Contact />} />
           <Route path='/scale' element={<Scale />} />
+          <Route path='/приблизно' element={<About />} />
+          <Route path='/акции' element={<Discount />} />
         </Routes>
         <Footer />
       </div>

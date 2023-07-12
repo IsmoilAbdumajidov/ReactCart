@@ -17,7 +17,7 @@ const Contact = () => {
     useEffect(() => {
         fetchContact()
     }, [])
-    console.log(contactData);
+    // console.log(contactData);
 
     return (
         <div className='min-h-screen w-full'>
