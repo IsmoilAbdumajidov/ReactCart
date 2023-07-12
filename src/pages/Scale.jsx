@@ -6,7 +6,7 @@ const Scale = () => {
     const [{scale},_] = useContext(ProductsContext)
   return (
     <div className='min-h-screen'>
-        <ListingItems list={scale} remove={'wishlist'}/>
+        <ListingItems list={scale} remove={'scale'}/>
     </div>
   )
 }
