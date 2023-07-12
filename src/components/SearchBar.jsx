@@ -15,7 +15,7 @@ const SearchBar = () => {
   const inputRef = useRef()
   const searchHandler = () => {
     const inputValue = inputRef.current.value;
-    console.log(inputValue);
+    // console.log(inputValue);
     searchByQuery(inputValue, dispatch)
   }
   return (

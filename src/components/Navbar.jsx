@@ -27,10 +27,10 @@ const Navbar = () => {
       </div>
       <div className={`${showBar ? 'h-auto' : 'h-0'} lg:flex  lg:h-auto overflow-hidden`}>
         <ul className='lg:flex items-center  lg:ml-20 lg:gap-6 text-[15px]'>
-          <NavLink to={'/'} className='py-2 lg:py-4 block group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Головна</span></NavLink>
-          <NavLink to={'/приблизно'} className='py-2 lg:py-4 block group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Приблизно</span></NavLink>
-         {state.discount.length ? <NavLink to={'/акции'} className='py-2 lg:py-4 block group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Акции</span></NavLink> : ''}
-          <NavLink to={'/контакти'} className='py-2  block lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Контакти</span></NavLink>
+          <NavLink to={'/'} className='py-2 lg:py-4 block group hover:bg-red-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-white lg:group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Головна</span></NavLink>
+          <NavLink to={'/приблизно'} className='py-2 lg:py-4 block group hover:bg-red-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-white lg:group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Приблизно</span></NavLink>
+         {state.discount.length ? <NavLink to={'/акции'} className='py-2 lg:py-4 block group hover:bg-red-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-white lg:group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Акции</span></NavLink> : ''}
+          <NavLink to={'/контакти'} className='py-2  block lg:py-4 group hover:bg-red-300 lg:hover:bg-transparent rounded-md  transition-all'><span className='group-hover:text-white lg:group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Контакти</span></NavLink>
         </ul>
       </div>
     </div>
