@@ -9,6 +9,7 @@ import { reducer } from './reduser/reduser'
 import Footer from './components/Footer'
 import Detail from './pages/Detail'
 import Contact from './pages/Contact'
+import Scale from './pages/Scale'
 
 
 export const ProductsContext = createContext()
@@ -47,6 +48,7 @@ const App = () => {
           <Route path='/cart' element={<Cart />} />
           <Route path='/wishlist' element={<WishList />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/scale' element={<Scale />} />
         </Routes>
         <Footer />
       </div>

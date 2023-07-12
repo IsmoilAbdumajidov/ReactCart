@@ -47,7 +47,7 @@ const ProductList = () => {
                 <button onClick={() => sortHandler('name')} className='border rounded p-2 '>назвою</button>
                </div>
             </div>
-            <ListingItems list={state.products} />
+            <ListingItems list={state.products} remove={'allproduct'} />
         </div>
     )
 }

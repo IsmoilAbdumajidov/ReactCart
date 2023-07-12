@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ProductsContext } from '../App'
 import SocialLink from './SocialLink'
 
@@ -11,11 +11,11 @@ const Footer = () => {
     <div className='bg-[#f3f3f3]'>
       <div className="main-container text-[14px] py-14  xl:gap-32 gap-5 grid grid-cols-1 lg:grid-cols-3 ">
         <div className='flex flex-col justify-between col-span-1'>
-          <NavLink to={'/'}>
+          <Link to={'/'}>
             <h1 className='text-3xl font-semibold'>
               <span className='text-red-600'>React</span><span>Cart</span>
             </h1>
-          </NavLink>
+          </Link>
           <p className='text-[14px]'>Lorem ipsum, or lipsum as it is sometimes kno wn, is dummy text used in laying out print, gra phic or web designs the passage</p>
           <p>&copy;  2023 Company, Inc. All rights reserved.</p>
         </div>
