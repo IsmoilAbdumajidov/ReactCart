@@ -17,6 +17,10 @@
   }
 }
 
+.active{
+  color: red;
+}
+
 .detail_img::-webkit-scrollbar {
   width: 0;
 }

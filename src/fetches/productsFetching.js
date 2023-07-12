@@ -18,8 +18,8 @@ export const fechtAllCategory = async (dispatch) => {
     try {
         const resp = await fetch(productsUrl + '/api/category/');
         const data = await resp.json()
-        // console.log(data);
-        dispatch({ type: 'FETCH_CATEGORY_LIST', payload: { categories: data } })
+        let newData = [{name:"All Product",slug:"all-product"},...data]
+        dispatch({ type: 'FETCH_CATEGORY_LIST', payload: { categories: newData } })
     } catch (error) {
         console.log(error);
     }

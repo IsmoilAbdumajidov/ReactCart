@@ -54,7 +54,7 @@ const Detail = () => {
             </div>
             <div className="p-4 relative flex flex-col col-span-1  gap-2 flex-1 border rounded-md">
                 <div className='flex flex-col gap-3'>
-                    <span className={` font-bold sm:text-xl block ${state.detail[0]?.discount !== 0 ? 'inline' : 'hidden'}`}>Discount:<span className='text-red-500 text-2xl line-through  font-semibold ml-3 '>{state.detail[0]?.discount}<sup>грн</sup></span></span>
+                    <span className={` font-bold sm:text-xl block ${state.detail[0]?.discount !== 0 ? 'inline' : 'hidden'}`}>Discount:<span className='text-red-500 text-xl line-through  font-semibold ml-3 '>{state.detail[0]?.discount}<sup>грн</sup></span></span>
                     <span className=' font-bold sm:text-xl block'>Ціна:<span className='text-green-500 text-2xl font-semibold ml-3'>{state.detail[0]?.price}<sup>грн</sup></span></span>
                     <span className=' font-bold sm:text-xl block'>Description:<span className='ml-3 text-base font-normal'>{parse(state.detail[0] ? state?.detail[0]?.description : '')}</span></span>
                 </div>

@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className='flex items-center justify-between'>
         <NavLink to={'/'}>
           <h1 className='text-3xl font-semibold'>
-            <span className='text-red-500'>React</span><span>Cart</span>
+            <span className='text-red-600'>React</span><span>Cart</span>
           </h1>
         </NavLink>
         <button onClick={() => { setShowBar(!showBar) }} className='lg:hidden'>
@@ -16,20 +16,12 @@ const Navbar = () => {
           </svg>
         </button>
       </div>
-      <div className={`${showBar ? 'h-auto' : 'h-0'} lg:flex flex-1 lg:h-auto overflow-hidden`}>
+      <div className={`${showBar ? 'h-auto' : 'h-0'} lg:flex  lg:h-auto overflow-hidden`}>
         <ul className='lg:flex items-center  lg:ml-20 lg:gap-6 text-[15px]'>
-          <li className='py-2 lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><a href="#" className='group-hover:text-red-500 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Home</a></li>
-          <li className='py-2 lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><a href="#" className='group-hover:text-red-500 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Shopping</a></li>
-          <li className='py-2 lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><a href="#" className='group-hover:text-red-500 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Pages</a></li>
-          <li className='py-2 lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><a href="#" className='group-hover:text-red-500 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Contact</a></li>
-        </ul>
-        <ul className='lg:flex items-center  ml-auto text-[13px] font-[600] lg:gap-6'>
-          <li className='py-2 lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'>
-            <a href="#" className='hover:text-red-500 group-hover:pl-5 transition-all'>Login</a>/
-            <a href="#" className='hover:text-red-500 transition-all'>Register</a>
-          </li>
-          <li className='py-2 lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><a href="#" className='group-hover:text-red-500 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Language</a></li>
-          <li className='py-2 lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><a href="#" className='group-hover:text-red-500 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Currency</a></li>
+          <NavLink to={'/home'} className='py-2 lg:py-4 block group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Home</span></NavLink>
+          <NavLink to={'/about'} className='py-2 lg:py-4 block group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>About</span></NavLink>
+          <NavLink to={'/aksiya'} className='py-2 lg:py-4 block group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span href="#" className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Aksiya</span></NavLink>
+          <NavLink to={'/contact'} className='py-2  block lg:py-4 group hover:bg-green-300 lg:hover:bg-transparent rounded-md  transition-all'><span className='group-hover:text-red-600 lg:group-hover:pl-0 group-hover:pl-5 transition-all'>Contact</span></NavLink>
         </ul>
       </div>
     </div>

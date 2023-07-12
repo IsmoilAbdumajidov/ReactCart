@@ -2,10 +2,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const DropCategory = ({ categories }) => {
-    const navigate = useNavigate()
     const selectHandler = (e) => {
-        // console.log(e.target.value);
-        navigate(`/${e.target.value}`)
+        console.log(e.target.value);
+        // navigate(`/${e.target.value}`)
     }
     return (
         <div className='flex items-center  justify-center text-white'>

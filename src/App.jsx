@@ -8,6 +8,7 @@ import WishList from './pages/WishList'
 import { reducer } from './reduser/reduser'
 import Footer from './components/Footer'
 import Detail from './pages/Detail'
+import Contact from './pages/Contact'
 
 
 export const ProductsContext = createContext()
@@ -17,10 +18,10 @@ const initialValue = {
   categories: [],
   cart: [],
   wishlist: [],
-  allPrice: 0,
   scale: [],
+  allPrice: 0,
   loading: true,
-  detail: []
+  detail: [],
 }
 
 const App = () => {
@@ -42,12 +43,10 @@ const App = () => {
         <SearchBar />
         <Routes>
           <Route path='/' element={<ProductList />} />
-          <Route path='/:categorySlug' element={<ProductList />} >
-            <Route path=':detailSlug' element={<Detail />} />
-          </Route>
+          <Route path='/product/:detailSlug' element={<Detail />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/wishlist' element={<WishList />} />
-          {/* <Route path='/wishlist' element={<WishList />} /> */}
+          <Route path='/contact' element={<Contact />} />
         </Routes>
         <Footer />
       </div>

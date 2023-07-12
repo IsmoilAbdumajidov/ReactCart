@@ -1,62 +1,42 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { createContext, useContext } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import { ProductsContext } from '../App'
+import SocialLink from './SocialLink'
+
+
 
 const Footer = () => {
+  const [state,_] = useContext(ProductsContext)
   return (
     <div className='bg-[#f3f3f3]'>
-      <div className="main-container text-[14px] py-14 gap-7 grid grid-cols-6">
-        <div className='flex flex-col justify-between col-span-2'>
+      <div className="main-container text-[14px] py-14  xl:gap-32 gap-5 grid grid-cols-1 lg:grid-cols-3 ">
+        <div className='flex flex-col justify-between col-span-1'>
           <NavLink to={'/'}>
             <h1 className='text-3xl font-semibold'>
-              <span className='text-red-500'>React</span><span>Cart</span>
+              <span className='text-red-600'>React</span><span>Cart</span>
             </h1>
           </NavLink>
           <p className='text-[14px]'>Lorem ipsum, or lipsum as it is sometimes kno wn, is dummy text used in laying out print, gra phic or web designs the passage</p>
-          <div>
-            <h1 className='text-lg font-semibold'>NEWSLETTER</h1>
-            <div className='flex text-white'>
-              <input type="text" className='rounded-s-md py-2 rounded-e-none text-[14px] w-full placeholder:text-gray-400 text-black' placeholder='Your email address' />
-              <button className='bg-red-500 rounded-e-md rounded-s-none text-[14px] py-2 px-3'>SUBSCRIBE</button>
-            </div>
-          </div>
+          <p>&copy;  2023 Company, Inc. All rights reserved.</p>
         </div>
-        <div className='flex flex-col gap-4 justify-between col-span-1'>
-          <h1 className='text-lg font-semibold'>
+        <div className='flex flex-col justify-between gap-4 col-span-1'>
+          <h1 className='text-lg font-semibold uppercase'>
             MY ACCOUNT
           </h1>
-          <ul className='flex flex-col gap-2  text-[14px]'>
-            <li><a className='hover:text-red-500' href="#">Orders</a></li>
-            <li><a className='hover:text-red-500' href="#">Wishlist</a></li>
-            <li><a className='hover:text-red-500' href="#">Track Order</a></li>
-            <li><a className='hover:text-red-500' href="#">Manage Account</a></li>
-            <li><a className='hover:text-red-500' href="#">Return Order</a></li>
+          <ul className='flex flex-col gap-2   text-[14px]'>
+            <li><Link className='hover:text-red-500' href="#">Home</Link></li>
+            <li><Link className='hover:text-red-500' href="#">About</Link></li>
+            <li><Link className='hover:text-red-500' href="#">Aksiya</Link></li>
+            <li><Link className='hover:text-red-500' href="#">Contact</Link></li>
           </ul>
         </div>
-        <div className='flex flex-col gap-4 justify-between col-span-1'>
-          <h1 className='text-lg font-semibold'>
-            MY ACCOUNT
+        <div className='flex flex-col justify-between col-span-1'>
+          <h1 className='text-lg font-semibold uppercase'>
+            MY Social Media
           </h1>
-          <ul className='flex flex-col gap-2  text-[14px]'>
-            <li><a className='hover:text-red-500' href="#">Orders</a></li>
-            <li><a className='hover:text-red-500' href="#">Wishlist</a></li>
-            <li><a className='hover:text-red-500' href="#">Track Order</a></li>
-            <li><a className='hover:text-red-500' href="#">Manage Account</a></li>
-            <li><a className='hover:text-red-500' href="#">Return Order</a></li>
-          </ul>
-        </div>
-        <div className='flex flex-col justify-between col-span-2'>
-          <h1 className='text-lg font-semibold'>
-            MY ACCOUNT
-          </h1>
-          <ul className='flex flex-col  gap-6  text-[14px]'>
+          <ul className='flex flex-col   gap-6  text-[14px]'>
             <li>
-              <a className='flex gap-2' href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-                <span>7895 Dr New Albuquerue, NM 19800, United States Of America</span>
-              </a>
+               <SocialLink socialData={state.socialLink} />
             </li>
             <li>
               <a className='flex gap-2' href="#">

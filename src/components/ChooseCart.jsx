@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ProductsContext } from '../App'
+import Checked from './Checked'
 
 const ChooseCart = ({ cart }) => {
     const [state, dispatch] = useContext(ProductsContext)
@@ -50,9 +51,10 @@ const ChooseCart = ({ cart }) => {
         <div className='border rounded-md p-3'>
             {state.cart.length ? state.cart.map((card, index) => (
                 <div key={index} className='border-b relative sm:flex items-start gap-3 py-2 '>
-                    <div className='w-28 h-auto '>
+                    <div className='w-28 h-auto relative'>
                         <img src={card?.images[0]} className='w-full h-full aspect-square object-cover object-center' alt="" />
-                        <div className='absolute top-3 rounded right-0 text-sm bg-green-600 text-white px-1'>{card.type}</div>
+                        <div className='absolute top-0 rounded right-0 text-sm bg-green-600 text-white px-1'>{card.type}</div>
+                        <Checked cardId={card?.id} />
                     </div>
                     <div className='flex-1'>
                         <h1 className='text-slate-900 text-lg font-bold'>{card?.name}</h1>

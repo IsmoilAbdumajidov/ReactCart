@@ -12,7 +12,7 @@ const SearchBar = () => {
   }, []);
   // console.log(state);
   return (
-    <div className='bg-red-500 py-3 sticky z-10 top-[-1px]'>
+    <div className='bg-red-600 py-3 sticky z-10 top-[-1px]'>
       <div className="main-container flex gap-5 flex-wrap items-center justify-between">
         <div className='relative bg-slate-800 px-3 py-1 cursor-pointer rounded-md w-full sm:w-64 '>
           <DropCategory categories={state.categories} />
