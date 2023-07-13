@@ -3,9 +3,11 @@ import { ProductsContext } from '../App';
 import Checked from './Checked';
 import { Link } from 'react-router-dom';
 import Charactiristic from './Charactiristic';
+import Modal from './Modal';
 
 const ListingItems = ({ list, remove }) => {
     const [_, dispatch] = useContext(ProductsContext)
+    const [showModal, setShowModal] = useState(false)
     const toggleHandler = (store, dispatchType, card) => {
         // console.log(store,dispatchType,card);
         card = { ...card, count: 1 }
@@ -20,12 +22,40 @@ const ListingItems = ({ list, remove }) => {
             localStorage.setItem(store, JSON.stringify([...dataFromLS, card]))
             dispatch({ type: dispatchType, payload: [...dataFromLS, card] })
         }
-        // console.log(card);
+        // store==='cart' ? setShowModal()
+    }
+    const quantityHandler = (ishora, card) => {
+        // card.count ? '' : card = { ...card, count: 0 }
+        // console.log(card.count);
+        // card = { ...card, count: 0 }
+      
+        let dataFromLS = JSON.parse(localStorage.getItem('cart')) || []
+        const el = dataFromLS?.find(item => ((item.id === card.id) ? item : ''))
+        console.log();
+        if (el!==undefined) {
+            if (ishora) {
+                el.count = el.count + 1
+            }
+            else {
+                el.count = el.count !== 1 ? el.count - 1 : 1
+            }
+            dataFromLS.forEach(item => { item.id == card.id ? item.count = el.count : '' })
+            localStorage.setItem('cart', JSON.stringify(dataFromLS))
+            dispatch({ type: 'UPDATE_CART', payload: dataFromLS })
+        }
+        else {
+            card = { ...card, count: 1 }
+            localStorage.setItem('cart', JSON.stringify([...dataFromLS, card]))
+            dispatch({ type: 'UPDATE_CART', payload: [...dataFromLS, card] })
+        }
+        
+        setShowModal(true)
     }
     // console.log(list);
     return (
         <>
             <div className={`main-container mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2  sm:gap-4 md:gap-8 pb-20`}>
+                {showModal ? <Modal setShowModal={setShowModal}/> :''}
                 {list.length ? list.map((card, index) => (
 
                     <div className='overflow-hidden flex flex-col shadow rounded-md hover:shadow-lg transition-all relative' key={index}>
@@ -44,7 +74,7 @@ const ListingItems = ({ list, remove }) => {
                             </div>
 
                             <div className='flex flex-col sm:flex-row sm:flex-nowrap mt-auto gap-2'>
-                                <button id='cart' onClick={() => toggleHandler('cart', 'UPDATE_CART', card)} className='bg-green-500 gap-2 flex items-center justify-center transition-all hover:bg-green-600 text-white rounded-md p-1 sm:py-2 flex-1'>
+                                <button id='cart' onClick={() => quantityHandler(true, card)} className='bg-green-500 gap-2 flex items-center justify-center transition-all hover:bg-green-600 text-white rounded-md p-1 sm:py-2 flex-1'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                                     </svg>

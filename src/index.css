@@ -22,12 +22,25 @@
 }
 
 .detail_img::-webkit-scrollbar {
-  width: 0;
+  width: 8px;
 }
 
 .detail_img::-webkit-scrollbar-track {
   background: transparent;
 }
+.modal_scrol::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal_scrol::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal_scrol::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+
+}
+
 .swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
   opacity: 0;
 }

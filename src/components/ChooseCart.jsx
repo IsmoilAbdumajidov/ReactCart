@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ProductsContext } from '../App'
 import Checked from './Checked'
 
-const ChooseCart = ({ cart }) => {
+const ChooseCart = () => {
     const [state, dispatch] = useContext(ProductsContext)
     const allPrice = ()=>{
         let dataFromLS = JSON.parse(localStorage.getItem('cart')) || []
@@ -110,7 +110,7 @@ const ChooseCart = ({ cart }) => {
                         </div>
                     </div>
                 </div>
-            )) : <p className='min-h-screen'>No item left..</p>}
+            )) : <p className='min-h-[500px]'>No item left..</p>}
         </div>
     )
 }
