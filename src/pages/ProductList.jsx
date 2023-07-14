@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import ListingItems from '../components/ListingItems'
 import { fechtAllProducts } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
-import { useParams } from 'react-router-dom';
+
+import HomeSlider from '../components/HomeSlider';
 
 
 const ProductList = () => {
@@ -38,6 +39,9 @@ const ProductList = () => {
     }
     return (
         <div className='min-h-screen w-full'>
+            <div className='mt-10 main-container '>
+                <HomeSlider />
+            </div>
             <div className='flex flex-col sm:flex-row gap-3 main-container mt-10 items-center'>
                 <div className='text-lg font-bold'>Сортувати по:</div>
                 <div className='flex flex-wrap gap-3'>

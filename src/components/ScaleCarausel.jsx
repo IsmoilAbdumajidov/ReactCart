@@ -46,7 +46,6 @@ const ScaleCarausel = () => {
               </Link>
               <div className="sm:p-4 p-2 relative h-[280px] sm:h-[260px] lg:h-[230px] flex flex-col  gap-2 border">
                 <Link to={`/product/${card.slug}`} className='text-slate-900 text-sm sm:text-md md:text-lg font-bold cursor-pointer'>{card?.name.length < 50 ? card?.name : `${card?.name.slice(0, 50)}...`}</Link>
-                <p className='text-gray-400 text-xs sm:text-sm'><span>Артикул:</span> {card?.vendor_code}</p>
                 <div>
                   <span className={`text-gray-400 text-xs sm:text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Знижка:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></span>
                   <span className='text-gray-400 text-xs sm:text-sm block'>Ціна:<span className='text-green-500 text-lg font-semibold ml-3'>{card?.price}<sup>грн</sup></span></span>

@@ -1,6 +1,6 @@
 // get all products
-// export const productsUrl = 'https://5927-195-158-30-69.ngrok-free.app';
-export const productsUrl = 'https://tarasivka.pythonanywhere.com';
+export const productsUrl = 'https://2a5b-213-230-74-203.ngrok-free.app';
+// export const productsUrl = 'https://tarasivka.pythonanywhere.com';
 export const fechtAllProducts = async (dispatch) => {
     // dispatch({ type: "LOADING" })
     try {
@@ -12,6 +12,7 @@ export const fechtAllProducts = async (dispatch) => {
         console.log(error);
     }
 }
+
 
 export const fechtAllCategory = async (dispatch) => {
     // dispatch({ type: "LOADING" })

@@ -1,23 +1,26 @@
-import React, { useContext, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { fechtAllCategory, searchByQuery } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
 import DropCategory from './DropCategory';
+import ModalForm from './ModalForm';
 
 
 const SearchBar = () => {
   const [state, dispatch] = useContext(ProductsContext)
+  const navigate = useNavigate()
   useEffect(() => {
     fechtAllCategory(dispatch)
   }, []);
   // console.log(state);
-
+  const [showModalForm, setShowModalForm] = useState(false)
   const inputRef = useRef()
   const searchHandler = () => {
+    navigate('/')
     const inputValue = inputRef.current.value;
-    // console.log(inputValue);
     searchByQuery(inputValue, dispatch)
   }
+  
   return (
     <div className='bg-red-600 py-3 sticky z-10 top-[-1px]'>
       <div className="main-container flex gap-5 flex-wrap items-center justify-between">
@@ -47,6 +50,10 @@ const SearchBar = () => {
             </svg>
             <span className='absolute right-0 top-0 bg-black w-4 h-4 flex items-center justify-center rounded-full'>{state.scale.length}</span>
           </Link>
+          <div onClick={() => setShowModalForm(true)} className={'flex cursor-pointer flex-col items-center relative text-[12px] fill-white'}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" ><path d="M20 12v-1.707c0-4.442-3.479-8.161-7.755-8.29-2.204-.051-4.251.736-5.816 2.256A7.933 7.933 0 0 0 4 10v2c-1.103 0-2 .897-2 2v4c0 1.103.897 2 2 2h2V10a5.95 5.95 0 0 1 1.821-4.306 5.977 5.977 0 0 1 4.363-1.691C15.392 4.099 18 6.921 18 10.293V20h2c1.103 0 2-.897 2-2v-4c0-1.103-.897-2-2-2z"></path><path d="M7 12h2v8H7zm8 0h2v8h-2z"></path></svg>
+          </div>
+          {showModalForm ?  <ModalForm  setState={setShowModalForm}/> : ''}
         </div>
       </div>
     </div>

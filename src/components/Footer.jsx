@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='flex flex-col justify-between col-span-1'>
           <Link to={'/'}>
             <h1 className='text-3xl font-semibold'>
-              <span className='text-red-600'>React</span><span>Cart</span>
+            <img className='w-20' src="../../public/vite.bmp" alt="" />
             </h1>
           </Link>
           <p className='text-[14px]'>Lorem ipsum, or lipsum as it is sometimes kno wn, is dummy text used in laying out print, gra phic or web designs the passage</p>

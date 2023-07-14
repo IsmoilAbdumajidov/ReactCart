@@ -28,6 +28,7 @@ const initialValue = {
   discount: [],
 }
 
+// console.log(selectedId);
 const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialValue)
@@ -40,6 +41,7 @@ const App = () => {
     dispatch({ type: 'UPDATE_WISHLIST', payload: dataFromLS_Wishlist })
     dispatch({ type: 'UPDATE_SCALE', payload: dataFromLS_Scale })
   }, [])
+  // console.log(state.selectedId);
   return (
     <ProductsContext.Provider value={[state, dispatch]}>
       <div className='flex flex-col h-full'>

@@ -5,9 +5,10 @@ import { ProductsContext } from '../App';
 
 const DropCategory = ({ categories }) => {
     const [state,dispatch] = useContext(ProductsContext)
+    const navigate = useNavigate()
     const selectHandler = (e) => {
-        // console.log(e.target.value);
         e.target.value === 'all-product' ? fechtAllProducts(dispatch) : fechProductsByCategory(e.target.value, dispatch)
+        navigate('/')
     }
     return (
         <div className='flex items-center  justify-center text-white'>

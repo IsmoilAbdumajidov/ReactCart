@@ -28,6 +28,7 @@ const ListingItems = ({ list, remove }) => {
         // card.count ? '' : card = { ...card, count: 0 }
         // console.log(card.count);
         // card = { ...card, count: 0 }
+        
       
         let dataFromLS = JSON.parse(localStorage.getItem('cart')) || []
         const el = dataFromLS?.find(item => ((item.id === card.id) ? item : ''))
@@ -48,10 +49,8 @@ const ListingItems = ({ list, remove }) => {
             localStorage.setItem('cart', JSON.stringify([...dataFromLS, card]))
             dispatch({ type: 'UPDATE_CART', payload: [...dataFromLS, card] })
         }
-        
         setShowModal(true)
     }
-    // console.log(list);
     return (
         <>
             <div className={`main-container mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2  sm:gap-4 md:gap-8 pb-20`}>
@@ -67,7 +66,6 @@ const ListingItems = ({ list, remove }) => {
                         </Link>
                         <div className="sm:p-4 p-2 relative flex flex-col  gap-2 flex-1 border">
                             <Link to={`/product/${card.slug}`} className='text-slate-900 text-sm sm:text-lg font-semibold sm:font-bold cursor-pointer'>{card?.name}</Link>
-                            <p className='text-gray-400 text-xs sm:text-sm'><span>Артикул:</span> {card?.vendor_code}</p>
                             <div>
                                 <span className={`text-gray-400 text-xs sm:text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Знижка:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></span>
                                 <span className='text-gray-400 text-xs sm:text-sm block'>Ціна:<span className='text-green-500 text-sm sm:text-lg font-semibold ml-3'>{card?.price}<sup>грн</sup></span></span>
