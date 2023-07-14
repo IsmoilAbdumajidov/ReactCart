@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { fetchDiscount } from '../fetches/productsFetching'
 import { ProductsContext } from '../App'
+import logo from "../assets/vite.png"
 const Navbar = () => {
   const [showBar, setShowBar] = useState(false)
   const [state,dispatch] = useContext(ProductsContext)
@@ -16,7 +17,7 @@ const Navbar = () => {
       <div className='flex items-center justify-between'>
         <NavLink to={'/'}>
           <h1 className='text-3xl font-semibold'>
-            <img className='w-20' src="../../public/vite.bmp" alt="" />
+            <img className='w-20' src={logo} alt="" />
           </h1>
         </NavLink>
         <button onClick={() => { setShowBar(!showBar) }} className='lg:hidden'>

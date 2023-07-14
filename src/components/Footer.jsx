@@ -2,7 +2,7 @@ import React, { createContext, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ProductsContext } from '../App'
 import SocialLink from './SocialLink'
-
+import logo from "../assets/vite.png"
 
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='flex flex-col justify-between col-span-1'>
           <Link to={'/'}>
             <h1 className='text-3xl font-semibold'>
-            <img className='w-20' src="../../public/vite.bmp" alt="" />
+            <img className='w-20' src={logo} alt="" />
             </h1>
           </Link>
           <p className='text-[14px]'>Lorem ipsum, or lipsum as it is sometimes kno wn, is dummy text used in laying out print, gra phic or web designs the passage</p>

@@ -22,17 +22,10 @@ const ListingItems = ({ list, remove }) => {
             localStorage.setItem(store, JSON.stringify([...dataFromLS, card]))
             dispatch({ type: dispatchType, payload: [...dataFromLS, card] })
         }
-        // store==='cart' ? setShowModal()
     }
-    const quantityHandler = (ishora, card) => {
-        // card.count ? '' : card = { ...card, count: 0 }
-        // console.log(card.count);
-        // card = { ...card, count: 0 }
-        
-      
+    const quantityHandler = (ishora, card) => {      
         let dataFromLS = JSON.parse(localStorage.getItem('cart')) || []
         const el = dataFromLS?.find(item => ((item.id === card.id) ? item : ''))
-        console.log();
         if (el!==undefined) {
             if (ishora) {
                 el.count = el.count + 1
