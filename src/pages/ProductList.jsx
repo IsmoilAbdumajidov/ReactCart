@@ -5,6 +5,7 @@ import { ProductsContext } from '../App';
 
 import HomeSlider from '../components/HomeSlider';
 import { useSearchParams } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
 
 
 const ProductList = () => {
@@ -21,11 +22,11 @@ const ProductList = () => {
             search = element
         });
         // console.log(search)
-        
+
         fechtAllProducts(dispatch, search);
     }, [searchParam.get('search')]);
-// }, [searchParam.get('q'),searchParam.get('cat')]);
-    
+    // }, [searchParam.get('q'),searchParam.get('cat')]);
+
     const sortHandler = (type) => {
         setIsReversed(!isReversed)
         // console.log(state.products);
@@ -54,6 +55,10 @@ const ProductList = () => {
     return (
         <div className='min-h-screen w-full'>
             <div className='mt-10 main-container '>
+                {state.loading ?
+                    <Skeleton className='h-[250px] sm:h-[350px] md:h-[500px] rounded-xl w-full mb-4' />
+                    : ''
+                }
                 <HomeSlider />
             </div>
             <div className='flex flex-col sm:flex-row gap-3 main-container mt-10 items-center'>

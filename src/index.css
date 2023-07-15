@@ -73,6 +73,10 @@
   padding-right: 12px;
 }
 
+.swiper-pagination-bullet{
+  opacity: 0.4;
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
 }

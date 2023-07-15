@@ -3,6 +3,7 @@
 export const productsUrl = 'https://tarasivka.pythonanywhere.com';
 // export const productsUrl = 'http://185.65.244.63';
 export const fechtAllProducts = async (dispatch, search) => {
+    dispatch({ type: "LOADING" })
     // dispatch({ type: "LOADING" })
     // const params = new URLSearchParams()
     // console.log(params)
@@ -28,7 +29,7 @@ export const fechtAllProducts = async (dispatch, search) => {
 
 
 export const fechtAllCategory = async (dispatch) => {
-    // dispatch({ type: "LOADING" })
+    dispatch({ type: "LOADING" })
     try {
         const resp = await fetch(productsUrl + '/api/category/');
         const data = await resp.json()
@@ -39,7 +40,7 @@ export const fechtAllCategory = async (dispatch) => {
     }
 }
 export const DetailFunck = async (id, dispatch) => {
-    // dispatch({ type: "LOADING" })
+    dispatch({ type: "LOADING" })
     try {
         const resp = await fetch(productsUrl + `/api/products?product_slug=${id}`);
         const data = await resp.json()
@@ -52,7 +53,7 @@ export const DetailFunck = async (id, dispatch) => {
 
 // get products by category
 // export const fechProductsByCategory = async (cat,dispatch) => {
-//     dispatch({ type: "LOADING" })
+    // dispatch({ type: "LOADING" })
 //     try {
 //         const resp = await fetch(productsUrl + `/api/products?category_slug=${cat}`)
 //         const data = await resp.json()
@@ -76,6 +77,7 @@ export const DetailFunck = async (id, dispatch) => {
 // }
 
 export const fetchDiscount = async (dispatch) => {
+    dispatch({ type: "LOADING" })
     try {
         const resp = await fetch(productsUrl + `/api/products?discount=1`)
         const data = await resp.json()
@@ -88,6 +90,7 @@ export const fetchDiscount = async (dispatch) => {
 
 
 export const fetchContact = async (dispatch) => {
+    dispatch({ type: "LOADING" })
     try {
         const resp = await fetch(productsUrl + '/api/contact/');
         const data = await resp.json()

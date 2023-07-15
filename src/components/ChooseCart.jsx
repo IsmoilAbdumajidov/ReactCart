@@ -109,7 +109,7 @@ const ChooseCart = () => {
                         </div>
                     </div>
                 </div>
-            )) : <p className='min-h-[500px]'>No item left..</p>}
+            )) : <p className='min-h-[500px] ps-10'>Немає предметів...</p>}
         </div>
     )
 }

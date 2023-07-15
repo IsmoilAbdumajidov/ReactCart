@@ -12,6 +12,8 @@ import Contact from './pages/Contact'
 import Scale from './pages/Scale'
 import About from './pages/About'
 import Discount from './pages/Discount'
+import { SkeletonTheme } from 'react-loading-skeleton'
+
 
 
 export const ProductsContext = createContext()
@@ -26,7 +28,8 @@ const initialValue = {
   loading: true,
   detail: [],
   discount: [],
-  contact:[]
+  contact: [],
+  loading:true
 }
 
 // console.log(selectedId);
@@ -44,23 +47,25 @@ const App = () => {
   }, [])
   // console.log(state.selectedId);
   return (
-    <ProductsContext.Provider value={[state, dispatch]}>
-      <div className='flex flex-col h-full'>
-        <Navbar />
-        <SearchBar />
-        <Routes>
-          <Route path='/' element={<ProductList />} />
-          <Route path='/product/:detailSlug' element={<Detail />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/wishlist' element={<WishList />} />
-          <Route path='/контакти' element={<Contact />} />
-          <Route path='/scale' element={<Scale />} />
-          <Route path='/приблизно' element={<About />} />
-          <Route path='/акції' element={<Discount />} />
-        </Routes>
-        <Footer />
-      </div>
-    </ProductsContext.Provider>
+    <SkeletonTheme baseColor="#eee" highlightColor="#fafafa">
+      <ProductsContext.Provider value={[state, dispatch]}>
+        <div className='flex flex-col h-full'>
+          <Navbar />
+          <SearchBar />
+          <Routes>
+            <Route path='/' element={<ProductList />} />
+            <Route path='/product/:detailSlug' element={<Detail />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/wishlist' element={<WishList />} />
+            <Route path='/контакти' element={<Contact />} />
+            <Route path='/scale' element={<Scale />} />
+            <Route path='/приблизно' element={<About />} />
+            <Route path='/акції' element={<Discount />} />
+          </Routes>
+          <Footer />
+        </div>
+      </ProductsContext.Provider>
+    </SkeletonTheme>
   )
 }
 

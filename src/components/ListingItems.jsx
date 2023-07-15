@@ -4,9 +4,10 @@ import Checked from './Checked';
 import { Link } from 'react-router-dom';
 import Charactiristic from './Charactiristic';
 import Modal from './Modal';
+import ScletonProduct from './ScletonProduct';
 
 const ListingItems = ({ list, remove }) => {
-    const [_, dispatch] = useContext(ProductsContext)
+    const [state, dispatch] = useContext(ProductsContext)
     const [showModal, setShowModal] = useState(false)
     const toggleHandler = (store, dispatchType, card) => {
         // console.log(store,dispatchType,card);
@@ -23,10 +24,10 @@ const ListingItems = ({ list, remove }) => {
             dispatch({ type: dispatchType, payload: [...dataFromLS, card] })
         }
     }
-    const quantityHandler = (ishora, card) => {      
+    const quantityHandler = (ishora, card) => {
         let dataFromLS = JSON.parse(localStorage.getItem('cart')) || []
         const el = dataFromLS?.find(item => ((item.id === card.id) ? item : ''))
-        if (el!==undefined) {
+        if (el !== undefined) {
             if (ishora) {
                 el.count = el.count + 1
             }
@@ -47,7 +48,11 @@ const ListingItems = ({ list, remove }) => {
     return (
         <>
             <div className={`main-container mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2  sm:gap-4 md:gap-8 pb-20`}>
-                {showModal ? <Modal setShowModal={setShowModal}/> :''}
+                {showModal ? <Modal setShowModal={setShowModal} /> : ''}
+                {state.loading ?
+                    <ScletonProduct card={12} />
+                    : ''
+                }
                 {list.length ? list.map((card, index) => (
 
                     <div className='overflow-hidden flex flex-col shadow rounded-md hover:shadow-lg transition-all relative' key={index}>
@@ -98,7 +103,7 @@ const ListingItems = ({ list, remove }) => {
                             </div>
                         </div>
                     </div>
-                )) : <p className='min-h-screen'>No item left..</p>}
+                )) : <p className='min-h-[500px] ps-10'>Немає предметів...</p>}
             </div>
         </>
     )
