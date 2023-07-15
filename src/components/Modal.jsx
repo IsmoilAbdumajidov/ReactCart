@@ -25,7 +25,7 @@ const Modal = ({ setShowModal }) => {
                     <div className='flex flex-col sm:flex-row justify-between gap-3'>
                         <button onClick={() => setShowModal(false)} className='bg-transparent hover:bg-slate-600 transition-all hover:text-white border border-slate-600 text-slate-600 p-2 rounded'>Продовжити покупки</button>
                         <Link className='flex-1' to={'/cart'}>
-                            <button className='bg-black border border-black text-white p-2 w-full rounded'>Продовжити покупки</button>
+                            <button className='bg-black border border-black text-white p-2 w-full rounded'>Оформити замовлення</button>
                         </Link>
                     </div>
                 </div>
