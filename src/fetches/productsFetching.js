@@ -51,29 +51,29 @@ export const DetailFunck = async (id, dispatch) => {
 }
 
 // get products by category
-export const fechProductsByCategory = async (cat,dispatch) => {
-    dispatch({ type: "LOADING" })
-    try {
-        const resp = await fetch(productsUrl + `/api/products?category_slug=${cat}`)
-        const data = await resp.json()
-        // console.log(data);
-        dispatch({ type: 'SELECT_CATEGORY', payload: data })
-    } catch (error) {
-        console.log(error);
-    }
-}
+// export const fechProductsByCategory = async (cat,dispatch) => {
+//     dispatch({ type: "LOADING" })
+//     try {
+//         const resp = await fetch(productsUrl + `/api/products?category_slug=${cat}`)
+//         const data = await resp.json()
+//         // console.log(data);
+//         dispatch({ type: 'SELECT_CATEGORY', payload: data })
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 // searching products
-export const searchByQuery = async (value,dispatch) => {
-    try {
-        const resp = await fetch(productsUrl + `/api/products?q=${value}`)
-        const data = await resp.json()
-        // console.log(data);
-        dispatch({ type: 'SEARCH', payload: data })
-    } catch (error) {
-        console.log(error);
-    }
-}
+// export const searchByQuery = async (value,dispatch) => {
+//     try {
+//         const resp = await fetch(productsUrl + `/api/products?q=${value}`)
+//         const data = await resp.json()
+//         // console.log(data);
+//         dispatch({ type: 'SEARCH', payload: data })
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 export const fetchDiscount = async (dispatch) => {
     try {

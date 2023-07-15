@@ -13,11 +13,11 @@ export const reducer = (state, action) => {
 
     if (action.type === 'ALL_PPRICE') return { ...state, allPrice: action.payload }
 
-    if (action.type === 'SELECT_CATEGORY') return { ...state, products: action.payload }
+    // if (action.type === 'SELECT_CATEGORY') return { ...state, products: action.payload }
 
-    if (action.type === 'SEARCH') return { ...state, products: action.payload }
+    // if (action.type === 'SEARCH') return { ...state, products: action.payload }
 
-    if (action.type === 'SELECTEDID') return { ...state, selectedId:  action.payload }
+    if (action.type === 'SELECTEDID') return { ...state, selectedId: action.payload }
 
     if (action.type === 'DISCOUNT') return { ...state, discount: action.payload }
 

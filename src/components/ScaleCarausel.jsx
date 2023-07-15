@@ -9,7 +9,7 @@ import Checked from '../components/Checked';
 import Charactiristic from '../components/Charactiristic';
 
 
-const ScaleCarausel = () => {
+const ScaleCarausel = ({setShowModal}) => {
     const [state, dispatch] = useContext(ProductsContext)
     const toggleHandler = (store, dispatchType, card) => {
       card = { ...card, count: 1 }
@@ -25,6 +25,27 @@ const ScaleCarausel = () => {
         dispatch({ type: dispatchType, payload: [...dataFromLS, card] })
       }
     }
+    const quantityHandler = (ishora, card) => {      
+      let dataFromLS = JSON.parse(localStorage.getItem('cart')) || []
+      const el = dataFromLS?.find(item => ((item.id === card.id) ? item : ''))
+      if (el!==undefined) {
+          if (ishora) {
+              el.count = el.count + 1
+          }
+          else {
+              el.count = el.count !== 1 ? el.count - 1 : 1
+          }
+          dataFromLS.forEach(item => { item.id == card.id ? item.count = el.count : '' })
+          localStorage.setItem('cart', JSON.stringify(dataFromLS))
+          dispatch({ type: 'UPDATE_CART', payload: dataFromLS })
+      }
+      else {
+          card = { ...card, count: 1 }
+          localStorage.setItem('cart', JSON.stringify([...dataFromLS, card]))
+          dispatch({ type: 'UPDATE_CART', payload: [...dataFromLS, card] })
+      }
+      setShowModal(true)
+  }
   return (
     <Swiper slidesPerView={1} breakpoints={{
         900: {
@@ -52,7 +73,7 @@ const ScaleCarausel = () => {
                 </div>
 
                 <div className='flex flex-col sm:flex-row mt-auto gap-2'>
-                  <button id='cart' onClick={() => toggleHandler('cart', 'UPDATE_CART', card)} className='bg-green-500 gap-2 flex items-center justify-center transition-all hover:bg-green-600 text-white rounded-md py-2 flex-1'>
+                  <button id='cart' onClick={() => quantityHandler(true, card)} className='bg-green-500 gap-2 flex items-center justify-center transition-all hover:bg-green-600 text-white rounded-md py-2 flex-1'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                     </svg>

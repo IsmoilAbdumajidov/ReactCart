@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { fechProductsByCategory, fechtAllProducts } from '../fetches/productsFetching';
+import { fechtAllProducts } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
 
 const DropCategory = ({ inputRef,dropRef, categories }) => {
