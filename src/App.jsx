@@ -26,6 +26,7 @@ const initialValue = {
   loading: true,
   detail: [],
   discount: [],
+  contact:[]
 }
 
 // console.log(selectedId);
@@ -55,7 +56,7 @@ const App = () => {
           <Route path='/контакти' element={<Contact />} />
           <Route path='/scale' element={<Scale />} />
           <Route path='/приблизно' element={<About />} />
-          <Route path='/акции' element={<Discount />} />
+          <Route path='/акції' element={<Discount />} />
         </Routes>
         <Footer />
       </div>

@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { productsUrl } from '../fetches/productsFetching'
 import parse from 'html-react-parser';
 import SpinnerSmall from '../components/spinerSmall/SpinnerSmall';
+import { ProductsContext } from '../App';
 
 const Contact = () => {
-    const [contactData, setContactData] = useState([])
     const [status, setStatus] = useState()
     const [spin, setSpin] = useState(false)
-    const fetchContact = async () => {
-        try {
-            const resp = await fetch(productsUrl + '/api/contact/');
-            const data = await resp.json()
-            setContactData(data)
-            // console.log(contactData);
-        } catch (error) {
-
-        }
-    }
-    useEffect(() => {
-        fetchContact()
-    }, [])
+    const [state,dispatch] = useContext(ProductsContext)
 
     const [dataFromInput, setDataFromInput] = useState({ name: "", email: "", message: "" })
     const inputHandler = (e) => {
@@ -55,9 +43,10 @@ const Contact = () => {
     return (
         <div className='min-h-screen w-full'>
             <div className='main-container  mt-10 grid grid-cols-1 gap-7 lg:grid-cols-2'>
-                <div className='col-span-1 p-3 border'>
-                    <h1 className='text-xl font-bold'>Київ, майдан Незалежності.</h1>
-                    <h1>Телефон: <span>{contactData[0]?.phone_number}</span></h1>
+                <div className='col-span-1 p-3 flex flex-col gap-3 border'>
+                    <h1 className='text-xl font-bold mb-3'>Київ, майдан Незалежності.</h1>
+                    <h1>Телефон: <span>{state.contact[0]?.phone_number}</span></h1>
+                    <h1>Email: <span>{state.contact[0]?.email}</span></h1>
                 </div>
                 <div className='col-span-1 p-3  border'>
                     <div className="flex flex-col sm:flex-row">
@@ -87,10 +76,10 @@ const Contact = () => {
                         <input value={dataFromInput.email} onChange={inputHandler} name='email' className='p-3 text-sm' type="email" placeholder='Email*' />
                         <textarea value={dataFromInput.message} onChange={inputHandler} name='message' className='p-3 text-sm' placeholder='Коментарі до замовлення'>
                         </textarea>
-                        <button disabled={!dataFromInput.name || !dataFromInput.email || !dataFromInput.message ? true : false} onClick={sendDataForm} className='bg-black p-4 disabled:opacity-25 text-white rounded-md'>Оформити замовлення</button>
+                        <button disabled={!dataFromInput.name || !dataFromInput.email || !dataFromInput.message ? true : false} onClick={sendDataForm} className='bg-black p-4 disabled:opacity-25 disabled:cursor-not-allowed text-white rounded-md'>Оформити замовлення</button>
                     </form>
                 </div>
-                <div className='lg:col-span-2 p-3 border'>{parse(contactData[0] ? contactData[0]?.location : '')}</div>
+                <div className='lg:col-span-2 p-3 border'>{parse(state.contact[0] ? state.contact[0]?.location : '')}</div>
             </div>
         </div>
     )

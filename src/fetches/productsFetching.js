@@ -85,3 +85,15 @@ export const fetchDiscount = async (dispatch) => {
         console.log(error);
     }
 }
+
+
+export const fetchContact = async (dispatch) => {
+    try {
+        const resp = await fetch(productsUrl + '/api/contact/');
+        const data = await resp.json()
+        dispatch({ type: 'CONTACT', payload: data })
+        // console.log(data);
+    } catch (error) {
+
+    }
+}

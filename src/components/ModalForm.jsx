@@ -71,7 +71,7 @@ const ModalForm = ({ setState }) => {
                     <input onChange={inputHandler} name='number' className='p-3 text-sm text-black' type="text" placeholder='Номер телефону*' />
                     <textarea onChange={inputHandler} name='message' className='p-3 text-sm text-black' placeholder='Введіть повідомлення'>
                     </textarea>
-                    <button disabled={!dataFromInput.name || !dataFromInput.number || !dataFromInput.message ? true : false} onClick={sendDataForm} className='bg-black disabled:opacity-25 p-3 text-white rounded-md'>Замовити</button>
+                    <button disabled={!dataFromInput.name || !dataFromInput.number || !dataFromInput.message ? true : false} onClick={sendDataForm} className='bg-black disabled:opacity-25 disabled:cursor-not-allowed p-3 text-white rounded-md'>Замовити</button>
                 </form>
             </div>
         </div>

@@ -15,7 +15,6 @@ const SocialLink = () => {
         try {
             const resp = await fetch(productsUrl + '/api/social_link/');
             const data = await resp.json()
-            // console.log(data);
             setGetSocial(data)
         } catch (error) {
             console.log(error);

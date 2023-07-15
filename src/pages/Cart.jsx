@@ -91,7 +91,7 @@ const Cart = () => {
               <input value={dataFromInput.address} onChange={inputHandler} name='address' className='md:col-span-2' type="text" placeholder='Адреса' required />
               <textarea value={dataFromInput.message} onChange={inputHandler} name='message' className='md:col-span-2' placeholder='Коментарі до замовлення' required>
               </textarea>
-              <button disabled={!dataFromInput.name || !dataFromInput.number || !dataFromInput.message || !dataFromInput.email || !dataFromInput.address || !dataFromInput.lname || !dataFromLS_Cart.length ? true : false} onClick={sendDataForm} className='bg-black disabled:opacity-40 p-3 w-full text-white rounded-md'>Оформити замовлення</button>
+              <button disabled={!dataFromInput.name || !dataFromInput.number || !dataFromInput.message || !dataFromInput.email || !dataFromInput.address || !dataFromInput.lname || !dataFromLS_Cart.length ? true : false} onClick={sendDataForm} className='bg-black disabled:opacity-40 disabled:cursor-not-allowed p-3 w-full text-white rounded-md'>Оформити замовлення</button>
             </form>
           </div>
         </div>
