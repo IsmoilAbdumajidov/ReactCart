@@ -8,6 +8,7 @@ import ModalForm from './ModalForm';
 
 const SearchBar = () => {
   const [state, dispatch] = useContext(ProductsContext)
+  const dropRef = useRef()
   const navigate = useNavigate()
   useEffect(() => {
     fechtAllCategory(dispatch)
@@ -16,16 +17,21 @@ const SearchBar = () => {
   const [showModalForm, setShowModalForm] = useState(false)
   const inputRef = useRef()
   const searchHandler = () => {
-    navigate('/')
+    dropRef.current.value = 'all-product'
     const inputValue = inputRef.current.value;
-    searchByQuery(inputValue, dispatch)
+    if (inputValue) {
+      navigate(`/?search=${inputValue}`)
+    }else {
+      navigate('/')
+    }
+    // searchByQuery(inputValue, dispatch)
   }
   
   return (
     <div className='bg-red-600 py-3 sticky z-10 top-[-1px]'>
       <div className="main-container flex gap-5 flex-wrap items-center justify-between">
         <div className='relative bg-slate-800 px-3 py-1 cursor-pointer rounded-md w-full sm:w-64 '>
-          <DropCategory categories={state.categories} />
+          <DropCategory inputRef={inputRef} dropRef={dropRef} categories={state.categories} />
         </div>
         <div className='flex text-black lg:w-[500px] xl:w-[650px] w-full order-2 lg:order-1'>
           <input ref={inputRef} type="text" className='rounded-s-md py-3 rounded-e-none text-[14px] bg-white w-full placeholder:text-black' placeholder='Що Ви шукаєте?' />

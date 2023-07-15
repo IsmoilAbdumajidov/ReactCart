@@ -4,14 +4,28 @@ import { fechtAllProducts } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
 
 import HomeSlider from '../components/HomeSlider';
+import { useSearchParams } from 'react-router-dom';
 
 
 const ProductList = () => {
     const [isReversed, setIsReversed] = useState(false)
     const [state, dispatch] = useContext(ProductsContext)
+    const [searchParam, setSearchParam] = useSearchParams()
+
     useEffect(() => {
-        fechtAllProducts(dispatch);
-    }, []);
+        // const q = searchParam.get('q')
+        // const cat = searchParam.get('cat')
+        // console.log(searchParam.get('search'))
+        let search = ''
+        searchParam.forEach(element => {
+            search = element
+        });
+        // console.log(search)
+        
+        fechtAllProducts(dispatch, search);
+    }, [searchParam.get('search')]);
+// }, [searchParam.get('q'),searchParam.get('cat')]);
+    
     const sortHandler = (type) => {
         setIsReversed(!isReversed)
         // console.log(state.products);

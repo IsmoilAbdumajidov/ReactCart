@@ -3,12 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { fechProductsByCategory, fechtAllProducts } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
 
-const DropCategory = ({ categories }) => {
-    const [state,dispatch] = useContext(ProductsContext)
+const DropCategory = ({ inputRef,dropRef, categories }) => {
+    const [state, dispatch] = useContext(ProductsContext)
     const navigate = useNavigate()
     const selectHandler = (e) => {
-        e.target.value === 'all-product' ? fechtAllProducts(dispatch) : fechProductsByCategory(e.target.value, dispatch)
-        navigate('/')
+        // e.target.value === 'all-product' ? fechtAllProducts(dispatch) : fechProductsByCategory(e.target.value, dispatch)
+        // console.log(inputRef)
+        inputRef.current.value=''
+        if (e.target.value === 'all-product') {
+            navigate('/')
+        } else {
+            navigate(`/?search=${e.target.value}`)
+        }
     }
     return (
         <div className='flex items-center  justify-center text-white'>
@@ -17,7 +23,7 @@ const DropCategory = ({ categories }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </span>
-            <select onChange={selectHandler} className='rounded-md py-2 text-sm px-3  w-full border-none text-white outline-none'>
+            <select ref={dropRef} onChange={selectHandler} className='rounded-md py-2 text-sm px-3  w-full border-none text-white outline-none'>
                 {
                     categories.map((element, index) => (
                         <option className='w-full text-black' key={index} value={element.slug}>{element.name}</option>

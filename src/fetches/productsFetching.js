@@ -2,10 +2,22 @@
 // export const productsUrl = 'https://2a5b-213-230-74-203.ngrok-free.app';
 export const productsUrl = 'https://tarasivka.pythonanywhere.com';
 // export const productsUrl = 'http://185.65.244.63';
-export const fechtAllProducts = async (dispatch) => {
+export const fechtAllProducts = async (dispatch, search) => {
     // dispatch({ type: "LOADING" })
+    // const params = new URLSearchParams()
+    // console.log(params)
+    // params.append('q', q)
+    // console.log(search)
+    // const config = new URLSearchParams({
+    //     // q:value || '',
+    //     // cat:value || '',
+    // })
+    // console.log(search);
     try {
-        const resp = await fetch(productsUrl + '/api/products/');
+        // const resp = await fetch(productsUrl + '/api/products/', {params});
+
+        const resp = await fetch(productsUrl + '/api/products/' + (search ? `?search=${search}`: ''));
+        // console.log(productsUrl + '/api/products/' + (search ? `?search=${search}`: ''))
         const data = await resp.json()
         // console.log(data);
         dispatch({ type: 'FETCH_PRODUCTS_LIST', payload: data  })
