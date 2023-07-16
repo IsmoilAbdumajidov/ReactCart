@@ -45,7 +45,7 @@ const Contact = () => {
             <div className='main-container  mt-10 grid grid-cols-1 gap-7 lg:grid-cols-2'>
                 <div className='col-span-1 p-3 flex flex-col gap-3 border'>
                     <h1 className='text-xl font-bold mb-3'>Київ, майдан Незалежності.</h1>
-                    <h1>Телефон: <span>{state.contact[0]?.phone_number}</span></h1>
+                    <h1>Телефон: <a href={`tel:${state.contact[0]?.phone_number}`}>{state.contact[0]?.phone_number}</a></h1>
                     <h1>Email: <span>{state.contact[0]?.email}</span></h1>
                 </div>
                 <div className='col-span-1 p-3  border'>
