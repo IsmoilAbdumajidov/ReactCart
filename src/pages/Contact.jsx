@@ -32,7 +32,7 @@ const Contact = () => {
         }
 
     }
-    // console.log(contactData);
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setStatus('')

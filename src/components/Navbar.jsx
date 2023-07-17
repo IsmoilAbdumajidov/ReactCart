@@ -11,7 +11,7 @@ const Navbar = () => {
     fetchDiscount(dispatch)
   }, [])
   
-  // console.log(state);
+
   return (
     <div className='lg:flex bg-white py-4 items-center justify-between main-container w-full'>
       <div className='flex items-center justify-between'>

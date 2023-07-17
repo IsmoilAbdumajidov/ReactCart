@@ -17,7 +17,6 @@ const HomeSlider = () => {
         try {
             const resp = await fetch(productsUrl + `/api/slider/`)
             const data = await resp.json()
-            // console.log(data);
             setSliderData(data)
         } catch (error) {
             console.log(error);

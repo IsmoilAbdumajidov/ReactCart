@@ -17,7 +17,7 @@ const About = () => {
     useEffect(() => {
         fetchAbout()
     }, [])
-    // console.log(aboutData);
+
     return (
         <div className='min-h-screen w-full'>
              <div className='mt-10 main-container '>

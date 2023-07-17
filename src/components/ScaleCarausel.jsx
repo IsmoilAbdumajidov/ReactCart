@@ -60,7 +60,6 @@ const ScaleCarausel = ({ setShowModal }) => {
       {state.scale.length ? state.scale.map((card, index) => (
         <SwiperSlide key={index} >
           <div className='overflow-hidden mx-1  cursor-pointer mb-1  flex flex-col  transition-all relative' >
-            {/* {console.log(card)} */}
             <Link to={`/product/${card.slug}`} className='relative h-[280px] sm:h-[300px] lg:h-[330px] cursor-pointer group'>
               <div className='absolute bottom-0 rounded left-0 text-sm bg-green-600 text-white px-1'>{card.type}</div>
               <img className='w-full h-full aspect-square object-cover' src={card?.images[0]} alt="" />

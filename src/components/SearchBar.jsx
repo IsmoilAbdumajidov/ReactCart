@@ -12,7 +12,6 @@ const SearchBar = () => {
   useEffect(() => {
     fechtAllCategory(dispatch)
   }, []);
-  // console.log(state);
   const [showModalForm, setShowModalForm] = useState(false)
   const inputRef = useRef()
   const searchHandler = () => {

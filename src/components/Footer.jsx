@@ -10,7 +10,7 @@ import { fetchContact } from '../fetches/productsFetching'
 const Footer = () => {
   const [showModalForm, setShowModalForm] = useState(false)
   const [state, dispatch] = useContext(ProductsContext)
-  // console.log(state.contact);
+
   useEffect(() => {
     fetchContact(dispatch)
   }, [])

@@ -10,15 +10,13 @@ const Detail = () => {
     const imgRef = useRef()
     const { detailSlug } = useParams()
     const [showModal, setShowModal] = useState(false)
-    // console.log(detailSlug)
     const [state, dispatch] = useContext(ProductsContext)
     useEffect(() => {
         DetailFunck(detailSlug, dispatch)
     }, []);
-    // console.log(state.detail[0]);
+
 
     const toggleHandler = (store, dispatchType, card) => {
-        // console.log(store,dispatchType,card);
 
         let dataFromLS = JSON.parse(localStorage.getItem(store)) || []
         const el = dataFromLS?.find(item => item.id === card.id)
@@ -56,7 +54,6 @@ const Detail = () => {
         }
         setShowModal(true)
     }
-    // console.log(state.detail[0]);
     return (
         <div className='main-container mt-10 grid grid-cols-1 lg:grid-cols-2 p-10 gap-6'>
             {showModal ? <Modal setShowModal={setShowModal}/> :''}

@@ -43,7 +43,7 @@ const App = () => {
     dispatch({ type: 'UPDATE_WISHLIST', payload: dataFromLS_Wishlist })
     dispatch({ type: 'UPDATE_SCALE', payload: dataFromLS_Scale })
   }, [])
-  // console.log(state.selectedId);
+
   return (
     <SkeletonTheme baseColor="#eee" highlightColor="#fafafa">
       <ProductsContext.Provider value={[state, dispatch]}>

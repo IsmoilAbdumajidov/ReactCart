@@ -10,7 +10,6 @@ const ChooseCart = () => {
         dataFromLS.forEach(elem => {
             sum += elem.price * elem.count
         })
-        // console.log(sum);
         dispatch({ type: 'ALL_PPRICE', payload: sum })
     }
     useEffect(() => {
@@ -18,7 +17,6 @@ const ChooseCart = () => {
     }, [])
 
      const toggleHandler = (store, dispatchType, card) => {
-        // console.log(store,dispatchType,card);
 
         let dataFromLS = JSON.parse(localStorage.getItem(store)) || []
         const el = dataFromLS?.find(item => item.id === card.id)
@@ -31,7 +29,6 @@ const ChooseCart = () => {
             localStorage.setItem(store, JSON.stringify([...dataFromLS, card]))
             dispatch({ type: dispatchType, payload: [...dataFromLS, card] })
         }
-        // console.log(card);
         allPrice()
     }
     const quantityHandler = (ishora, card) => {

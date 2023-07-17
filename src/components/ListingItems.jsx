@@ -10,7 +10,6 @@ const ListingItems = ({ list, remove }) => {
     const [state, dispatch] = useContext(ProductsContext)
     const [showModal, setShowModal] = useState(false)
     const toggleHandler = (store, dispatchType, card) => {
-        // console.log(store,dispatchType,card);
         card = { ...card, count: 1 }
         let dataFromLS = JSON.parse(localStorage.getItem(store)) || []
         const el = dataFromLS?.find(item => item.id === card.id)
@@ -55,7 +54,6 @@ const ListingItems = ({ list, remove }) => {
                         list.length ? list.map((card, index) => (
 
                             <div className='overflow-hidden flex flex-col shadow rounded-md hover:shadow-lg transition-all relative' key={index}>
-                                {/* {console.log(card)} */}
                                 <Link to={`/product/${card.slug}`} className='relative cursor-pointer group'>
                                     <div className='absolute bottom-0 rounded left-0 text-sm bg-green-600 text-white px-1'>{card.type}</div>
                                     <img className='w-full aspect-square object-cover' src={card?.images[0]} alt="" />

@@ -27,7 +27,6 @@ const Cart = () => {
       })
       setDataFromInput({ name: "", number: "", message: "", email: "", address: "", lname: "" })
       const data = await resp.json()
-      // console.log(data);
       setSpin(false)
       setStatus(data)
     } catch (error) {
@@ -41,10 +40,6 @@ const Cart = () => {
     return () => clearTimeout(timer);
   }, [status]);
 
-  // console.log({...dataFromInput,selectId:dataFromLS_Cart})
-  // console.log(dataFromLS_Cart)
-  // let a = {...dataFromInput,selectId:dataFromLS_Cart}
-  // console.log(a);
   return (
     <div className='min-h-screen'>
       <div className='main-container gap-8 items-start grid grid-cols-1 xl:grid-cols-2 mt-10'>

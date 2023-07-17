@@ -24,7 +24,6 @@ const SocialLink = () => {
         fechSocialLink()
     }, [])
 
-    // console.log(getSocial);
     return (
         <ul className='flex gap-2'>
             {getSocial.length ? getSocial.map((social,index) =>(
