@@ -17,7 +17,7 @@ const SearchBar = () => {
   const inputRef = useRef()
   const searchHandler = () => {
     const inputValue = inputRef.current.value;
-    inputRef.current.value=''
+    inputRef.current.value = ''
     if (inputValue) {
       navigate(`/?search=${inputValue}`)
     } else {
@@ -29,7 +29,12 @@ const SearchBar = () => {
   return (
     <div className='bg-red-600 py-3 sticky z-10 top-[-1px]'>
       <div className="main-container flex gap-5 flex-wrap items-center justify-between">
-        <button onClick={()=>navigate(-1)} className='bg-slate-800 px-6 text-white py-3 cursor-pointer rounded-md'>Назад</button>
+        <button onClick={() => navigate(-1)} className='bg-slate-800 px-6 text-white py-3 cursor-pointer rounded-md flex items-center gap-2'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
+          </svg>
+          <p>Назад</p>
+        </button>
         <div className='flex text-black lg:w-[500px] xl:w-[650px] w-full order-2 lg:order-1'>
           <input ref={inputRef} type="text" className='rounded-s-md py-3 rounded-e-none text-[14px] bg-white w-full placeholder:text-black' placeholder='Що Ви шукаєте?' />
           <button onClick={searchHandler} className='bg-slate-800 rounded-e-md rounded-s-none text-[14px] text-white py-3 px-10'>Пошук</button>
@@ -54,7 +59,7 @@ const SearchBar = () => {
             <span className='absolute right-0 top-0 bg-black w-4 h-4 flex items-center justify-center rounded-full'>{state.scale.length}</span>
           </Link>
           <div onClick={() => setShowModalForm(true)} className={'flex cursor-pointer flex-col items-center relative text-[12px] fill-white'}>
-          <svg xmlns="http://www.w3.org/2000/svg" className='w-8 h-8' viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256C0 114.6 114.6 0 256 0S512 114.6 512 256V400.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24H240c-26.5 0-48-21.5-48-48s21.5-48 48-48h32c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40V256c0-114.9-93.1-208-208-208zM144 208h16c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H144c-35.3 0-64-28.7-64-64V272c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64v48c0 35.3-28.7 64-64 64H352c-17.7 0-32-14.3-32-32V240c0-17.7 14.3-32 32-32h16z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className='w-8 h-8' viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256C0 114.6 114.6 0 256 0S512 114.6 512 256V400.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24H240c-26.5 0-48-21.5-48-48s21.5-48 48-48h32c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40V256c0-114.9-93.1-208-208-208zM144 208h16c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H144c-35.3 0-64-28.7-64-64V272c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64v48c0 35.3-28.7 64-64 64H352c-17.7 0-32-14.3-32-32V240c0-17.7 14.3-32 32-32h16z" /></svg>
           </div>
           {showModalForm ? <ModalForm setState={setShowModalForm} /> : ''}
         </div>
