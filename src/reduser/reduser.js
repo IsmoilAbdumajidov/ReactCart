@@ -15,9 +15,7 @@ export const reducer = (state, action) => {
 
     if (action.type === "LOADING") return { ...state, loading: true }
 
-    // if (action.type === 'SELECT_CATEGORY') return { ...state, products: action.payload }
-
-    // if (action.type === 'SEARCH') return { ...state, products: action.payload }\
+    if (action.type === 'SELECT_CATEGORY') return { ...state, products: action.payload,loading:false }
 
     if (action.type === 'CONTACT') return { ...state, contact: action.payload }
 

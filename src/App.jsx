@@ -29,10 +29,8 @@ const initialValue = {
   detail: [],
   discount: [],
   contact: [],
-  loading:true
 }
 
-// console.log(selectedId);
 const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialValue)

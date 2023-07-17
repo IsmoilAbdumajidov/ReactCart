@@ -8,7 +8,6 @@ import ModalForm from './ModalForm';
 
 const SearchBar = () => {
   const [state, dispatch] = useContext(ProductsContext)
-  const dropRef = useRef()
   const navigate = useNavigate()
   useEffect(() => {
     fechtAllCategory(dispatch)
@@ -17,8 +16,8 @@ const SearchBar = () => {
   const [showModalForm, setShowModalForm] = useState(false)
   const inputRef = useRef()
   const searchHandler = () => {
-    dropRef.current.value = 'all-product'
     const inputValue = inputRef.current.value;
+    inputRef.current.value=''
     if (inputValue) {
       navigate(`/?search=${inputValue}`)
     } else {
@@ -30,9 +29,7 @@ const SearchBar = () => {
   return (
     <div className='bg-red-600 py-3 sticky z-10 top-[-1px]'>
       <div className="main-container flex gap-5 flex-wrap items-center justify-between">
-        <div className='relative bg-slate-800 px-3 py-1 cursor-pointer rounded-md w-full sm:w-64 '>
-          <DropCategory inputRef={inputRef} dropRef={dropRef} categories={state.categories} />
-        </div>
+        <button onClick={()=>navigate(-1)} className='bg-slate-800 px-6 text-white py-3 cursor-pointer rounded-md'>Назад</button>
         <div className='flex text-black lg:w-[500px] xl:w-[650px] w-full order-2 lg:order-1'>
           <input ref={inputRef} type="text" className='rounded-s-md py-3 rounded-e-none text-[14px] bg-white w-full placeholder:text-black' placeholder='Що Ви шукаєте?' />
           <button onClick={searchHandler} className='bg-slate-800 rounded-e-md rounded-s-none text-[14px] text-white py-3 px-10'>Пошук</button>

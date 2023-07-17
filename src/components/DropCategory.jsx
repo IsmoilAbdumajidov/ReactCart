@@ -1,20 +1,12 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { fechtAllProducts } from '../fetches/productsFetching';
+import { fechProductsByCategory, fechtAllProducts } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
 
 const DropCategory = ({ inputRef,dropRef, categories }) => {
     const [state, dispatch] = useContext(ProductsContext)
-    const navigate = useNavigate()
     const selectHandler = (e) => {
-        // e.target.value === 'all-product' ? fechtAllProducts(dispatch) : fechProductsByCategory(e.target.value, dispatch)
-        // console.log(inputRef)
-        inputRef.current.value=''
-        if (e.target.value === 'all-product') {
-            navigate('/')
-        } else {
-            navigate(`/?search=${e.target.value}`)
-        }
+        e.target.value === 'all-product' ? fechtAllProducts(dispatch) : fechProductsByCategory(e.target.value, dispatch)
     }
     return (
         <div className='flex items-center  justify-center text-white'>
