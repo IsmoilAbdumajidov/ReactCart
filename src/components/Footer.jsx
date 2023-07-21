@@ -37,9 +37,9 @@ const Footer = () => {
           <ul className='flex flex-col gap-2   text-[14px]'>
             <li><Link to={'/'} className='hover:text-red-500' href="#">Головна</Link></li>
             <li><Link to={'/про-нас'} className='hover:text-red-500' href="#"> Про нас</Link></li>
-            <li>
-              {state.discount.length ? <Link to={'/акції'} className='hover:text-red-500' href="#">Акції</Link> : ''}
-            </li>
+
+            {state.discount.length ? <li><Link to={'/акції'} className='hover:text-red-500' href="#">Акції</Link>  </li> : ''}
+
             <li><Link to={'/контакти'} className='hover:text-red-500' href="#">Контакти</Link></li>
           </ul>
         </div>
