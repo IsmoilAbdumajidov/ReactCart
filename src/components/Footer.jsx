@@ -36,8 +36,10 @@ const Footer = () => {
           </h1>
           <ul className='flex flex-col gap-2   text-[14px]'>
             <li><Link to={'/'} className='hover:text-red-500' href="#">Головна</Link></li>
-            <li><Link to={'/приблизно'} className='hover:text-red-500' href="#"> Приблизно</Link></li>
-            <li><Link to={'/акції'} className='hover:text-red-500' href="#">Акції</Link></li>
+            <li><Link to={'/про-нас'} className='hover:text-red-500' href="#"> Про нас</Link></li>
+            <li>
+              {state.discount.length ? <Link to={'/акції'} className='hover:text-red-500' href="#">Акції</Link> : ''}
+            </li>
             <li><Link to={'/контакти'} className='hover:text-red-500' href="#">Контакти</Link></li>
           </ul>
         </div>
