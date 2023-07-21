@@ -64,7 +64,7 @@ const ListingItems = ({ list, remove }) => {
                                     <div>
                                         <p className={`text-gray-400 text-xs sm:text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Знижка:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></p>
                                         <p className='text-gray-400 text-xs sm:text-sm block'>Ціна:<span className='text-green-500 text-sm sm:text-lg font-semibold ml-3'>{card?.price}<sup>грн</sup></span></p>
-                                        <p className='text-gray-400 text-xs sm:text-sm block'><span>Артикул:</span> {state.detail[0]?.vendor_code}</p>
+                                        <p className='text-gray-400 text-xs sm:text-sm block'><span>Артикул:</span> {card?.vendor_code}</p>
                                     </div>
 
                                     <div className='flex flex-col sm:flex-row sm:flex-nowrap mt-auto gap-2'>
