@@ -62,8 +62,9 @@ const ListingItems = ({ list, remove }) => {
                                 <div className="sm:p-4 p-2 relative flex flex-col  gap-2 flex-1 border">
                                     <Link to={`/product/${card.slug}`} className='text-slate-900 text-sm sm:text-lg font-semibold sm:font-bold cursor-pointer'>{card?.name}</Link>
                                     <div>
-                                        <span className={`text-gray-400 text-xs sm:text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Знижка:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></span>
-                                        <span className='text-gray-400 text-xs sm:text-sm block'>Ціна:<span className='text-green-500 text-sm sm:text-lg font-semibold ml-3'>{card?.price}<sup>грн</sup></span></span>
+                                        <p className={`text-gray-400 text-xs sm:text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Знижка:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></p>
+                                        <p className='text-gray-400 text-xs sm:text-sm block'>Ціна:<span className='text-green-500 text-sm sm:text-lg font-semibold ml-3'>{card?.price}<sup>грн</sup></span></p>
+                                        <p className='text-gray-400 text-xs sm:text-sm block'><span>Артикул:</span> {state.detail[0]?.vendor_code}</p>
                                     </div>
 
                                     <div className='flex flex-col sm:flex-row sm:flex-nowrap mt-auto gap-2'>

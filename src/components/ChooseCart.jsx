@@ -56,11 +56,13 @@ const ChooseCart = () => {
                     <div className='flex-1'>
                         <h1 className='text-slate-900 text-lg font-bold'>{card?.name}</h1>
                         <p className={`text-gray-400 text-sm block ${card?.discount !== 0 ? 'inline' : 'hidden'}`}>Discount:<span className='text-red-500 line-through  font-semibold ml-3 '>{card?.discount}<sup>грн</sup></span></p>
+                        <p className='text-gray-400 text-xs sm:text-sm block'><span>Артикул:</span> {state.detail[0]?.vendor_code}</p>
 
                         <div className='mt-2 sm:flex gap-5'>
                             <div className='flex sm:block gap-2 justify-between  items-center'>
                                 <p className='text-gray-400 sm:mb-2 text-xs'>Ціна</p>
                                 <p className='text-green-500 text-md font-semibold '>{card?.price}<sup>грн</sup></p>
+                                
                             </div>
                             <div className='flex sm:block gap-2 justify-between  items-center'>
                                 <p className='text-gray-400 sm:mb-2 text-xs'>Кількість</p>

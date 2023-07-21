@@ -2,22 +2,21 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import ListingItems from '../components/ListingItems'
 import { fechtAllProducts } from '../fetches/productsFetching';
 import { ProductsContext } from '../App';
-
 import HomeSlider from '../components/HomeSlider';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import DropCategory from '../components/DropCategory';
-
+// uselocation Hook
 
 const ProductList = () => {
     const [isReversed, setIsReversed] = useState(false)
     const [state, dispatch] = useContext(ProductsContext)
-    const [searchParam, setSearchParam] = useSearchParams()
-    const dropRef = useRef()
+    const [searchParam, _] = useSearchParams()
+    const search = searchParam.get('search')
+    const cat = searchParam.get('cat')
     useEffect(() => {
-        const search = searchParam.get('search')
-        fechtAllProducts(dispatch, search);
-    }, [searchParam.get('search')]);
+        fechtAllProducts(dispatch, search,cat);
+    }, [search,cat]);
 
     const sortHandler = (type) => {
         setIsReversed(!isReversed)
@@ -61,9 +60,9 @@ const ProductList = () => {
                         <button onClick={() => sortHandler('name')} className='border rounded p-2 '>назвою</button>
                     </div>
                 </div>
-                <div className='relative bg-slate-800 px-3 py-1 cursor-pointer rounded-md w-full sm:w-80 '>
+                {/* <div className='relative bg-slate-800 px-3 py-1 cursor-pointer rounded-md w-full sm:w-80 '>
                     <DropCategory dropRef={dropRef} categories={state.categories} />
-                </div>
+                </div> */}
             </div>
             <ListingItems list={state.products} remove={'allproduct'} />
         </div>

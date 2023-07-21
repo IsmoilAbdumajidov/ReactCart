@@ -14,9 +14,11 @@ const SearchBar = () => {
   }, []);
   const [showModalForm, setShowModalForm] = useState(false)
   const inputRef = useRef()
+  const dropRef = useRef()
   const searchHandler = () => {
     const inputValue = inputRef.current.value;
     inputRef.current.value = ''
+    dropRef.current.value = 'всі-продукти'
     if (inputValue) {
       navigate(`/?search=${inputValue}`)
     } else {
@@ -28,12 +30,9 @@ const SearchBar = () => {
   return (
     <div className='bg-red-600 py-3 sticky z-10 top-[-1px]'>
       <div className="main-container flex gap-5 flex-wrap items-center justify-between">
-        <button onClick={() => navigate(-1)} className='bg-slate-800 px-6 text-white py-3 cursor-pointer rounded-md flex items-center gap-2'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
-          </svg>
-          <p>Назад</p>
-        </button>
+        <div className='relative bg-slate-800 px-3 py-1 cursor-pointer rounded-md w-full sm:w-80 '>
+          <DropCategory inputRef={inputRef} dropRef={dropRef} categories={state.categories} />
+        </div>
         <div className='flex text-black lg:w-[500px] xl:w-[650px] w-full order-2 lg:order-1'>
           <input ref={inputRef} type="text" className='rounded-s-md py-3 rounded-e-none text-[14px] bg-white w-full placeholder:text-black' placeholder='Що Ви шукаєте?' />
           <button onClick={searchHandler} className='bg-slate-800 rounded-e-md rounded-s-none text-[14px] text-white py-3 px-10'>Пошук</button>

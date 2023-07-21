@@ -68,25 +68,25 @@ const Cart = () => {
                     <h3>Дані успішно завантажено</h3>
                   </div>
                 ) : ''}
-                {status===false ? (
+                {status === false ? (
                   <div className='text-red-600 gap-3 flex items-center'>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-                  </svg>
-                  <h3>Помилка</h3>
-                </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                    </svg>
+                    <h3>Помилка</h3>
+                  </div>
                 ) : ''}
               </div>
             </div>
             <form className='grid gap-4 grid-cols-1 md:grid-cols-2'>
-              <input value={dataFromInput.name} onChange={inputHandler} name='name' type="text" placeholder="Ім'я*" required />
-              <input value={dataFromInput.lname} onChange={inputHandler} name='lname' type="text" placeholder='Прiзвище' required />
-              <input value={dataFromInput.number} onChange={inputHandler} name='number' type="number" placeholder='Номер телефону' required />
+              <input value={dataFromInput.name} onChange={inputHandler} name='name' type="text" placeholder="Ім'я*" />
+              <input value={dataFromInput.lname} onChange={inputHandler} name='lname' type="text" placeholder='Прiзвище' />
+              <input value={dataFromInput.number} onChange={inputHandler} name='number' type="number" placeholder='Номер телефону' />
               <input value={dataFromInput.email} onChange={inputHandler} name='email' type="email" placeholder='Email*' />
-              <input value={dataFromInput.address} onChange={inputHandler} name='address' className='md:col-span-2' type="text" placeholder='Адреса' required />
-              <textarea value={dataFromInput.message} onChange={inputHandler} name='message' className='md:col-span-2' placeholder='Коментарі до замовлення' required>
+              <input value={dataFromInput.address} onChange={inputHandler} name='address' className='md:col-span-2' type="text" placeholder='Адреса' />
+              <textarea value={dataFromInput.message} onChange={inputHandler} name='message' className='md:col-span-2' placeholder='Коментарі до замовлення' >
               </textarea>
-              <button disabled={!dataFromInput.name || !dataFromInput.number || !dataFromInput.message || !dataFromInput.email || !dataFromInput.address || !dataFromInput.lname || !dataFromLS_Cart.length ? true : false} onClick={sendDataForm} className='bg-black disabled:opacity-40 disabled:cursor-not-allowed p-3 w-full text-white rounded-md'>Оформити замовлення</button>
+              <button disabled={!dataFromInput.name || !dataFromInput.number || !dataFromInput.address || !dataFromInput.lname || !dataFromLS_Cart.length ? true : false} onClick={sendDataForm} className='bg-black disabled:opacity-40 disabled:cursor-not-allowed p-3 w-full text-white rounded-md'>Оформити замовлення</button>
             </form>
           </div>
         </div>
